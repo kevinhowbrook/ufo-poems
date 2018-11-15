@@ -1,0 +1,6 @@
+.vscode
+proxies.txt
+data.json
+__pycache__
+*files*
+*.db
