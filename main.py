@@ -41,16 +41,16 @@ def get_proxy(protocol):
             https.append(line)
     if protocol == 'http':
         ip = str(random.choice(http))
-    if protocol == 'https':
+    elif protocol == 'https':
         ip = str(random.choice(https))
     return ip
 
 
 def get_listing():
-    links = []
-    for i in work_out_remaining():
-        links.append('http://ufostalker.com:8080/event?id={}'.format(i))
-    return links
+    return [
+        'http://ufostalker.com:8080/event?id={}'.format(i)
+        for i in work_out_remaining()
+    ]
 
 
 # parse a single item to get information
