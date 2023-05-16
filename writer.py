@@ -12,11 +12,11 @@ def get_data():
     conn = sqlite3.connect('database/database.db')
     cur = conn.cursor()
     with conn:
-        data = cur.execute(
+        return cur.execute(
             'SELECT original_id, title, detailedDescription, city, region, \
              country, latitude, longitude, shape, submitted FROM sightings \
-             ORDER BY submitted desc').fetchall()
-        return data
+             ORDER BY submitted desc'
+        ).fetchall()
 
 
 data = get_data()[:4000]
@@ -39,20 +39,18 @@ def get_random_spaces(input):
     if randint(1, 20) % randint(1, 20):
         return input
     spaces = ''
-    for v in range(randint(0, 4)):
+    for _ in range(randint(0, 4)):
         spaces += ' '
-    output = input + spaces
-    return output
+    return input + spaces
 
 
 def get_random_breaks(input):
     if randint(0, 200) % 2:
         return input
     breaks = ''
-    for v in range(randint(0, 3)):
+    for _ in range(randint(0, 3)):
         breaks += '<br>'
-    output = input + breaks
-    return output
+    return input + breaks
 
 
 
